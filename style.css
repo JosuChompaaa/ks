@@ -1,0 +1,83 @@
+/* Reseteo básico y configuraciones globales */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    height: 100%; width: 100%;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden; /* Evita barras de desplazamiento */
+    background-color: #f0f2f5;
+    touch-action: none; /* Bloquea gestos en celular durante el susto */
+}
+
+/* --- ESTILOS DE LA ZONA CALMADA --- */
+#calm-zone {
+    height: 100%; width: 100%;
+    display: flex; justify-content: center; align-items: center;
+    background: linear-gradient(180deg, #e0c3fc 0%, #8ec5fc 100%); /* Degradado pastel */
+    color: #4a4a4a; padding: 20px;
+    transition: opacity 0.2s ease-out; /* Desaparece rápido */
+}
+
+.content-wrapper {
+    text-align: center;
+    max-width: 600px; width: 100%;
+}
+
+h1 { margin-bottom: 15px; font-weight: 600; color: #5a5a5a; }
+p { margin-bottom: 30px; font-size: 1.1rem; color: #666; }
+
+.calm-image-container {
+    width: 70%; /* Tamaño ideal para celular */
+    max-width: 350px; /* Límite para PC */
+    margin: 0 auto 40px auto;
+}
+
+#calm-img {
+    width: 100%; height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+    transition: transform 1s ease-in-out;
+}
+
+/* Animación suave cuando empieza la música relax */
+.flotando-suave { animation: flotar 3s ease-in-out infinite alternate; }
+@keyframes flotar {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20px); }
+}
+
+button {
+    padding: 18px 35px; font-size: 1.1rem; font-weight: bold;
+    background: #fff; border: none; border-radius: 50px;
+    color: #8ec5fc; cursor: pointer;
+    box-shadow: 0 8px 25px rgba(142, 197, 252, 0.4);
+    transition: all 0.3s ease; letter-spacing: 1px;
+}
+
+button:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(142, 197, 252, 0.6); }
+button:active { transform: scale(0.98); }
+
+/* --- ESTILOS DEL SCREAMER (El Susto) --- */
+#screamer-zone {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: black;
+    display: none; /* OCULTO INICIALMENTE */
+    z-index: 9999; /* Encima de absolutamente todo */
+    justify-content: center; align-items: center;
+    overflow: hidden;
+}
+
+#screamer-img {
+    /* Hacemos que la imagen sea un poco más grande que la pantalla para intimidar */
+    width: 110vw; height: 110vh;
+    object-fit: cover;
+    animation: terror-total 0.1s infinite steps(2); /* Animación epiléptica */
+}
+
+/* Esta animación hace que la imagen parpadee, vibre e invierta colores violentamente */
+@keyframes terror-total {
+    0% { transform: translate(2px, 2px) scale(1); filter: invert(0) contrast(1.5); }
+    25% { transform: translate(-3px, -2px) scale(1.05); filter: invert(1) contrast(2); }
+    50% { transform: translate(-2px, 4px) scale(1); filter: invert(0) contrast(1.5); }
+    75% { transform: translate(4px, -3px) scale(1.05); filter: invert(1) contrast(2); }
+    100% { transform: translate(0, 0) scale(1); filter: invert(0) contrast(1.5); }
+}

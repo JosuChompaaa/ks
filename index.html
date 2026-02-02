@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Zona de Relajación Michi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main id="calm-zone">
+        <div class="content-wrapper">
+            <h1>Bienvenido al Michi Zen</h1>
+            <p id="instruction-text">Usa audífonos para una mejor experiencia...</p>
+            
+            <div class="calm-image-container">
+                <img src="michi_calmado.png" id="calm-img" alt="Michi bonito">
+            </div>
+            
+            <button id="start-btn">Iniciar Experiencia Relajante</button>
+        </div>
+    </main>
+
+
+    <div id="screamer-zone">
+        <img src="michi_screamer.png" id="screamer-img" alt="SUSTO">
+    </div>
+
+
+    <audio id="relax-audio" src="musica_relax.mp3" loop preload="auto"></audio>
+    <audio id="scream-audio" src="grito.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
